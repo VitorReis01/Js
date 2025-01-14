@@ -11,14 +11,14 @@ function convertValues() {
 
     if (currencySelect.value == "dolar") {
         currencyValueConverted.innerHTML = new Intl.NumberFormat("en-US", {
-            style: "currency" , 
+            style: "currency",
             currency: "USD"
         }).format(inputCurrencyValue / dolarToday);
     }
 
     if (currencySelect.value == "Euro") {
         currencyValueConverted.innerHTML = new Intl.NumberFormat("de-DE", {
-            style: "currency" ,
+            style: "currency",
             currency: "EUR"
         }).format(inputCurrencyValue / EuroToday);
     }
@@ -29,23 +29,22 @@ function convertValues() {
     }).format(inputCurrencyValue);
 }
 
-function changeCurrency()  {
-    const currencyName = document.getElementById ("currency-name")
-    const currencyImg = document.querySelector("currency-img")
+function changeCurrency() {
+    const currencyName = document.getElementById("currency-name");
+    const currencyImg = document.querySelector(".currency-img");
 
-  if  (currencySelect.value == "dolar"){
-    currencyName.innerHTML = "dólar americano"
-    currencyImg.src = "./assets/dolar.png "
+    if (currencySelect.value == "dolar") {
+        currencyName.innerHTML = "dólar americano";
+        currencyImg.src = "./assets/dolar.png";
+    }
 
-  }
+    if (currencySelect.value == "Euro") {
+        currencyName.innerHTML = "Euro";
+        currencyImg.src = "./assets/euro.png";
+    }
 
-  if  (currencySelect.value == "Euro"){
-    currencyName.innerHTML = "Euro"
-    currencyImg.src = "./assets/euro.png"
-
-  }
-   
+    convertValues( )
 }
 
-currencySelect.addEventListener("chenge", changeCurrency)
-convertButton.addEventListener("click", convertValues)
+currencySelect.addEventListener("change", changeCurrency);
+convertButton.addEventListener("click", convertValues);
